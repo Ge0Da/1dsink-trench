@@ -1,0 +1,16 @@
+# Large bathymetric DEM — download from GMRT (see REQUIREMENTS.md)
+data/*.tif
+data/*.nc
+data/*.grd
+
+# MATLAB autosave / temporaries
+*.asv
+*.m~
+slprj/
+octave-workspace
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp

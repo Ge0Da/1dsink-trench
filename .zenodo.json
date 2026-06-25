@@ -1,0 +1,23 @@
+{
+  "title": "1DSink Along-Trench Morphometric Framework",
+  "description": "MATLAB pipeline for one-dimensional along-trench morphometric decomposition and sediment-trapping (Trapping Index) analysis of the Kuril-Kamchatka Trench, validated against independent surface-sediment geochemistry. Accompanies the article 'Morphology segregates contaminant accumulation along hadal trenches'.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Fernández-Blanco, David",
+      "affiliation": "Institute of Deep-sea Science and Engineering, Chinese Academy of Sciences"
+    }
+  ],
+  "keywords": [
+    "hadal trench",
+    "morphometrics",
+    "Kuril-Kamchatka Trench",
+    "bathymetry",
+    "sediment trapping",
+    "Trapping Index",
+    "contaminants",
+    "MATLAB"
+  ]
+}
