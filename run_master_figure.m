@@ -91,11 +91,8 @@ demPath    = resolveRelativePath(cfg.demFile, scriptDir);
 samplePath = resolveRelativePath(cfg.sampleFile, scriptDir);
 outputDir  = resolveRelativePath(cfg.outputDir, scriptDir);
 
-% DEM is mandatory
-if ~isfile(demPath)
-    error('run_master_figure:demNotFound', ...
-        'DEM file not found:\n  %s\nEdit cfg.demFile in config_master_figure.m', demPath);
-end
+% DEM is mandatory (fail-closed QC gate)
+qcRun1DSinkPathGates('dem', struct('demPath', demPath));
 
 % Samples are MANDATORY (RE-1: not optional)
 if ~isfile(samplePath)
@@ -157,6 +154,8 @@ trenchAxis = extractTrenchAxis(DEM, ...
 
 if verbose, fprintf('  Axis extraction: %.1f s\n', toc(tStart)); end
 
+qcRun1DSinkPathGates('axis', struct('trenchAxis', trenchAxis));
+
 
 %% ========================================================================
 %  STEP 5: LOAD SAMPLES
@@ -189,6 +188,10 @@ if all(abs(sp_x) <= 360) && all(abs(sp_y) <= 90) ...
             crsMethod, min(sp_x), max(sp_x), min(sp_y), max(sp_y));
     end
 end
+
+qcRun1DSinkPathGates('samples', struct( ...
+    'sampleX', sp_x, 'sampleY', sp_y, ...
+    'axisX', trenchAxis.x, 'axisY', trenchAxis.y));
 
 
 %% ========================================================================
